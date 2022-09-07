@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    myst:
+        image: mysteriumnetwork/myst:latest
+        container_name: myst
+        restart: unless-stopped
+        cap_add:
+            - NET_ADMIN
+        ports:
+            - 4449:4449
+        volumes:
+            - ~/myst-data:/var/lib/mysterium-node
+        command: service --agreed-terms-and-conditions
